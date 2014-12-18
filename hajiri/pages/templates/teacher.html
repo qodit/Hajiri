@@ -12,6 +12,22 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         Attendence Stats for {{ teacher.name }}
+        <div class="pull-right">
+          <div class="btn-group">
+            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+Date Range
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu pull-right" role="menu">
+              <li><a href="#">Yesterday</a>
+              </li>
+              <li><a href="#">This Week</a>
+              </li>
+              <li><a href="#">This Month</a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
 
       <div class="panel-body">
@@ -27,6 +43,37 @@
 <!-- /.row -->
 
 <script>
+ $(function() {
+
+   var data = [{
+     label: "Present",
+     data: {{ record.present }}
+   }, {
+     label: "Absent",
+     data: {{ record.absent }}
+   }];
+
+   var plotObj = $.plot($("#flot-pie-chart"), data, {
+     series: {
+       pie: {
+         show: true
+       }
+     },
+     grid: {
+       hoverable: true
+     },
+     tooltip: true,
+     tooltipOpts: {
+       content: "%p.0%, %s", // show percentages, rounding to 2 decimal places
+       shifts: {
+         x: 20,
+         y: 0
+       },
+       defaultTheme: false
+     }
+   });
+
+ });
 </script>
 
 {% endblock content %}

@@ -54,13 +54,20 @@ def graph(request):
     return HttpResponse(template.render(context))
 
 def teacherinfo(request, teacher_id):
+    import datetime
     teacher = get_object_or_404(Teacher, pk=teacher_id)
+
+    yesterday = datetime.date.today() - datetime.timedelta(days=1)
+
+    record = Record.objects.filter(date = yesterday, teacher=teacher).get()
+
     template = loader.get_template('teacher.html')
     context = RequestContext(request, {
-        'title': "Info about ",
+        'title': "Info about "+teacher.name,
         'mainmenuindex': 1,
         'teachers': teachernames(),
         'teacher': teacher,
+        'record': record,
     })
 
     return HttpResponse(template.render(context))
