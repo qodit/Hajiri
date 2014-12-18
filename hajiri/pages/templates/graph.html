@@ -11,7 +11,7 @@
   <div class="col-lg-12">
     <div class="panel panel-default">
       <div class="panel-heading">
-        Graph Chart for teachers
+        Present Rate for teachers
       </div>
       <!-- /.panel-heading -->
       <div class="panel-body">
@@ -25,19 +25,39 @@
 <!-- /.row -->
 
 <script>
+
  Morris.Area({
    element: 'morris-area-chart',
    data: [
      {
-       period: '2010 Q1',
-       iphone: 2666,
-       ipad: null,
-       itouch: 2647
+       date: '14 Dec',
+       ashish: 100,
+       diwas: 82,
+       yubraj: 65,
+       aayush: 75
      },
+
+     {
+       date: '15 Dec',
+       ashish: 82,
+       diwas: 75,
+       yubraj: 42,
+       aayush: 90
+     },
+
+
+     {
+       date: '16 Dec',
+       ashish: 91,
+       diwas: 65,
+       yubraj: 49,
+       aayush: 100
+     },
+
    ],
-   xkey: 'period',
-   ykeys: ['iphone', 'ipad', 'itouch'],
-   labels: ['iPhone', 'iPad', 'iPod Touch'],
+   xkey: 'date',
+   ykeys: ['ashish', 'diwas', 'yubraj', 'aayush'],
+   labels: ['Ashish Acharya', 'Diwas Sharma', 'Yubraj Panta', 'Aayush Subedi'],
    pointSize: 2,
    hideHover: 'auto',
    resize: true
