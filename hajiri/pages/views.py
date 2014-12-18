@@ -72,12 +72,16 @@ def teacherinfo(request, teacher_id):
 
     return HttpResponse(template.render(context))
 
-def studentinfo(request):
 
+def studentinfo(request):
+    show = True
+    if request.GET.get('email', False):
+        show = False
     template = loader.get_template('studentinfo.html')
     context = RequestContext(request, {
-        'title': "Sign In",
+        'title': "Student Information"+str(show),
         'mainmenuindex': 1,
+        'show': show,
     })
 
     return HttpResponse(template.render(context))

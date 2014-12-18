@@ -8,7 +8,8 @@
         <h3 class="panel-title">Student Information</h3>
       </div>
       <div class="panel-body">
-        <form role="form">
+        {% if show %}
+        <form role="form" action="{% url 'studentinfo' %}" method="GET">
           <fieldset>
             <div class="form-group">
               <input class="form-control" placeholder="Student Email" name="email" type="email" autofocus>
@@ -16,10 +17,66 @@
             <div class="form-group">
               <input class="form-control" placeholder="Student Key" name="password" type="text" value="">
             </div>
+            <hr/>
+
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>SN#</th>
+                    <th>Subject Name</th>
+                    <th>Teacher Name</th>
+                    <th>Present/Absent</th>
+                    <th>Rating(1-5)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>English</td>
+                    <td>Ashish Acharya</td>
+                    <td><input type="checkbox" name="vehicle" value="Bike">Present<br></td>
+                    <td><input type="text" name="lname" style="width:40px;"></td>
+                  </tr>
+
+                  <tr>
+                    <td>2</td>
+                    <td>Maths</td>
+                    <td>Yubraj Panta</td>
+                    <td><input type="checkbox" name="vehicle" value="Bike">Present<br></td>
+                    <td><input type="text" name="lname" style="width:40px;"></td>
+                  </tr>
+
+                  <tr>
+                    <td>3</td>
+                    <td>Nepali</td>
+                    <td>Aayush Subedi</td>
+                    <td><input type="checkbox" name="vehicle" value="Bike">Present<br></td>
+                    <td><input type="text" name="lname" style="width:40px;"></td>
+                  </tr>
+
+                  <tr>
+                    <td>1</td>
+                    <td>Science</td>
+                    <td>Yubraj Panta</td>
+                    <td><input type="checkbox" name="vehicle" value="Bike">Present<br></td>
+                    <td><input type="text" name="lname" style="width:40px;"></td>
+                  </tr>
+
+
+
+                </tbody>
+              </table>
+            </div>
+
+            <hr/>
             <!-- Change this to a button or input when using this as a form -->
-            <a href="{% url 'studentinfo' %}" class="btn btn-lg btn-success btn-block">Submit Information</a>
+            <input type="submit" class="btn btn-lg btn-success btn-block" value="Submit">
           </fieldset>
         </form>
+        {% else %}
+        Your data has been submitted.
+        {% endif %}
       </div>
     </div>
   </div>
