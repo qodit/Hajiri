@@ -21,7 +21,9 @@ class Subject(models.Model):
 class Period(models.Model):
     teacher = models.ForeignKey(Teacher)
     subject = models.ForeignKey(Subject)
+    dayid = models.IntegerField(default=1)
+    periodid = models.IntegerField(default=1)
 
     def __str__(self):
-        return self.subject.name+" by "+self.teacher.name
+        return self.subject.name+" by "+self.teacher.name+": period "+str(self.periodid)+" on  day "+str(self.dayid)
 
