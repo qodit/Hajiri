@@ -28,6 +28,13 @@ class Period(models.Model):
         return self.subject.name+" by "+self.teacher.name+": period "+str(self.periodid)+" on  day "+str(self.dayid)
 
 
+class Record(models.Model):
+    date = models.DateField()
+    teacher = models.ForeignKey(Teacher)
+    absent = models.IntegerField(default=0)
+    present = models.IntegerField(default=0)
+
+
 class TeacherRecord(models.Model):
     teacher = models.ForeignKey(Teacher)
 
@@ -39,4 +46,14 @@ class TeacherRecord(models.Model):
 
     tmp = models.IntegerField(default=0)  # This month presents
     tma = models.IntegerField(default=0)  # This month Absents
+
+    def __str__(self):
+        return "Records for "+self.teacher.name
+
+    def getPresent(self):
+        return self.yp/(self.yp + self.ya)*100
+
+    def getAbsent(self):
+        return self.ya/(self.yp + self.ya)*100
+
 
