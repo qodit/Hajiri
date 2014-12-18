@@ -27,3 +27,16 @@ class Period(models.Model):
     def __str__(self):
         return self.subject.name+" by "+self.teacher.name+": period "+str(self.periodid)+" on  day "+str(self.dayid)
 
+
+class TeacherRecord(models.Model):
+    teacher = models.ForeignKey(Teacher)
+
+    yp = models.IntegerField(default=0)  # Yesterday presents
+    ya = models.IntegerField(default=0)  # Yesterday Absents
+
+    twp = models.IntegerField(default=0)  # This week presents
+    twa = models.IntegerField(default=0)  # This week Absents
+
+    tmp = models.IntegerField(default=0)  # This month presents
+    tma = models.IntegerField(default=0)  # This month Absents
+
