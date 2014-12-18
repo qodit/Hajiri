@@ -4,7 +4,7 @@ from django.http import HttpResponse,HttpRequest,HttpResponseRedirect
 
 
 def home(request):
-    template = loader.get_template('pages/home.html')
+    template = loader.get_template('base.html')
     context = RequestContext(request, {
         'title': "Hajiri Dashboard",
         'mainmenuindex': 1,
