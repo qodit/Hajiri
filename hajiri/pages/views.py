@@ -71,3 +71,13 @@ def teacherinfo(request, teacher_id):
     })
 
     return HttpResponse(template.render(context))
+
+def studentinfo(request):
+
+    template = loader.get_template('studentinfo.html')
+    context = RequestContext(request, {
+        'title': "Sign In",
+        'mainmenuindex': 1,
+    })
+
+    return HttpResponse(template.render(context))

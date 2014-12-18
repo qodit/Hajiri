@@ -60,3 +60,10 @@ class TeacherRecord(models.Model):
         return self.ya/(self.yp + self.ya)*100
 
 
+class Student(models.Model):
+    name = models.CharField(max_length=50)
+    email = models.CharField(max_length=100)
+    password = models.CharField(max_length=10)
+
+    def __str__(self):
+        return self.name
