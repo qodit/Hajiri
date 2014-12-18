@@ -1,0 +1,73 @@
+{% extends "layout/_base.html" %}
+{% block content %}
+{{ block.super }}
+<section id="container" >
+      <!--header start-->
+      <header class="header white-bg">
+            <div class="sidebar-toggle-box">
+                <div data-original-title="Toggle Navigation" data-placement="right" class="icon-reorder tooltips"></div>
+            </div>
+            <!--logo start-->
+            <a href="{% url 'home' %}" class="logo">Hajiri<span></span></a>
+            <!--logo end-->
+            <div class="nav notify-row" id="top_menu">
+            </div>
+            <div class="top-nav ">
+                <!--search & user info start-->
+                <ul class="nav pull-right top-menu">
+                    <li>
+                        <input type="text" class="form-control search" placeholder="Search">
+                    </li>
+                    <!-- user login dropdown start-->
+                    <!-- user login dropdown end -->
+                </ul>
+                <!--search & user info end-->
+            </div>
+        </header>
+      <!--header end-->
+      <!--sidebar start-->
+      <aside>
+          <div id="sidebar"  class="nav-collapse ">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu" id="nav-accordion">
+                  <li>
+                      <a class="active" href="{% url 'home' %}">
+                          <i class="icon-dashboard"></i>
+                          <span>Home</span>
+                      </a>
+                  </li>
+
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="active">
+                          <i class="icon-laptop"></i>
+                          <span>Teachers</span>
+                      </a>
+                      <ul class="sub">
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="active">
+                          <i class=" icon-bar-chart"></i>
+                          <span>Records</span>
+                      </a>
+                      <ul class="sub">
+                      </ul>
+                  </li>
+              </ul>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>
+      <!--sidebar end-->
+{% block admininner %}
+
+{% endblock admininner %}
+<footer class="site-footer">
+          <div class="text-center">
+              2014 &copy; SmartHome
+              <a href="#" class="go-top">
+                  <i class="icon-angle-up"></i>
+              </a>
+          </div>
+</footer>
+</section>
+{% endblock content %}
