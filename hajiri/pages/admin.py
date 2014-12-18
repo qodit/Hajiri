@@ -1,5 +1,5 @@
 from django.contrib import admin
-from pages.models import Period, Subject, Teacher, TeacherRecord
+from pages.models import Period, Subject, Teacher, TeacherRecord, Record
 
 
 class PeriodAdmin(admin.ModelAdmin):
@@ -7,10 +7,10 @@ class PeriodAdmin(admin.ModelAdmin):
 
 admin.site.register(Period, PeriodAdmin)
 
-class TeacherRecordAdmin(admin.ModelAdmin):
+class RecordAdmin(admin.ModelAdmin):
     pass
 
-admin.site.register(TeacherRecord, TeacherRecordAdmin)
+admin.site.register(Record, RecordAdmin)
 
 
 class SubjectAdmin(admin.ModelAdmin):

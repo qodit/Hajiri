@@ -34,6 +34,9 @@ class Record(models.Model):
     absent = models.IntegerField(default=0)
     present = models.IntegerField(default=0)
 
+    def __str__(self):
+        return "Record for "+self.teacher.name+" on "+str(self.date)
+
 
 class TeacherRecord(models.Model):
     teacher = models.ForeignKey(Teacher)
